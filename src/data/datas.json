@@ -1,0 +1,27 @@
+{
+    "teachersName": [
+        "Prithwiraj Bhattacharjee",
+        "Rana M Luthfur Rahman Pir",
+        "Md. Jalal Uddin Chowdhury"
+    ],
+    "designation": [
+        "Assistant Professor",
+        "Lecturer",
+        "Adjunct-Faculty",
+        "Guest Teacher"
+    ],
+    "department": [
+        "Business Administration",
+        "Computer Science & Engineering",
+        "English",
+        "Electrical & Electronic Engineering",
+        "Civil Engineering",
+        "Architecture",
+        "Law",
+        "Islamic Studies",
+        "Public Health",
+        "Tourism and Hospitality Management",
+        "Bangla"
+    ],
+    "section":["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"]
+}

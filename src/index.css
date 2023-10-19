@@ -1,0 +1,46 @@
+/* Global Style */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'serif';
+    src: local('serif'), url(./assets/fonts/LiberationSerif-Regular.ttf) format('opentype');
+}
+@font-face {
+    font-family: 'serifbold';
+    src: local('serifbold'), url(./assets/fonts/LiberationSerif-Bold.ttf) format('opentype');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100% !important;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: -webkit-linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    background-image: -moz-linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    background-image: -ms-linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    background-image: -o-linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+}
+
+/* body {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    height: 100% !important;
+    background-size:cover !important;
+} */
+[list]::-webkit-calendar-picker-indicator {
+    display: none !important;
+}

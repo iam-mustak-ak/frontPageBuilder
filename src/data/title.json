@@ -1,0 +1,322 @@
+[
+    {
+        "title": "Introduction to Computing",
+        "code": "CSE-1101"
+    },
+    {
+        "title": "Introduction to Computing Sessional",
+        "code": "CSE-1102"
+    },
+    {
+        "title": "Discrete Mathematics",
+        "code": "CSE-1151"
+    },
+    {
+        "title": "Computer Aided Engineering Drawing",
+        "code": "GED-1262"
+    },
+    {
+        "title": "Calculus and Linear Algebra",
+        "code": "MAT-1151"
+    },
+    {
+        "title": "Basic English",
+        "code": "GED-1131"
+    },
+    {
+        "title": "Bangladesh Studies",
+        "code": "GED-1145"
+    },
+    {
+        "title": "Basic Computer Applications",
+        "code": "GED-1122"
+    },
+    {
+        "title": "Structured Programming",
+        "code": "CSE-1211"
+    },
+    {
+        "title": "Structured ProgrammingSessional",
+        "code": "CSE-1212"
+    },
+    {
+        "title": "Differential Equation Laplace Transform and Fourier Analysis",
+        "code": "MAT-1251"
+    },
+    {
+        "title": "Physics: Heat Light and Sound",
+        "code": "GED-1171"
+    },
+    {
+        "title": "Physics Laboratory",
+        "code": "PHY-1272"
+    },
+    {
+        "title": "Electrical Circuits",
+        "code": "EEE-1221"
+    },
+    {
+        "title": "Electrical Circuits Sessional",
+        "code": "EEE-1222"
+    },
+    {
+        "title": "Functional English",
+        "code": "GED-1231"
+    },
+    {
+        "title": "Introduction to Sociology",
+        "code": "GED-1291"
+    },
+    {
+        "title": "Chemistry",
+        "code": "CHE-2311"
+    },
+    {
+        "title": "Chemistry: Sessional",
+        "code": "CHE-2312"
+    },
+    {
+        "title": "Data Structures",
+        "code": "CSE-1315"
+    },
+    {
+        "title": "Data Structures Sessional",
+        "code": "CSE-1316"
+    },
+    {
+        "title": "Differential Equations and Fourier Analysis",
+        "code": "MAT-1315"
+    },
+    {
+        "title": "Principles of Accounting",
+        "code": "ACC-2111"
+    },
+    {
+        "title": "Electrical Circuits I",
+        "code": "EEE-1111"
+    },
+    {
+        "title": "Electrical Circuits I Sessional",
+        "code": "EEE-1112"
+    },
+    {
+        "title": "Professional Ethics",
+        "code": "ART-2213"
+    },
+    {
+        "title": "Computer Algorithms and Complexity",
+        "code": "CSE-2117"
+    },
+    {
+        "title": "Computer Algorithms and Complexity Sessional",
+        "code": "CSE-2118"
+    },
+    {
+        "title": "General Physics",
+        "code": "PHY-2211"
+    },
+    {
+        "title": "General Physics Sessional",
+        "code": "PHY-2212"
+    },
+    {
+        "title": "Co-Ordinate Geometry and Vector Analysis",
+        "code": "MAT-2111"
+    },
+    {
+        "title": "Data Communication",
+        "code": "CSE-2321"
+    },
+    {
+        "title": "Object-Oriented Programming",
+        "code": "CSE-2213"
+    },
+    {
+        "title": "Object-Oriented Programming Sessional",
+        "code": "CSE-2214"
+    },
+    {
+        "title": "Principles of Economics",
+        "code": "ECO-2211"
+    },
+    {
+        "title": "Database Management System",
+        "code": "CSE-2319"
+    },
+    {
+        "title": "Database Management System Sessional",
+        "code": "CSE-2320"
+    },
+    {
+        "title": "Probability and Statistics",
+        "code": "MAT-2213"
+    },
+    {
+        "title": "Electronics",
+        "code": "EEE-1215"
+    },
+    {
+        "title": "Electronics Sessional",
+        "code": "EEE-1216"
+    },
+    {
+        "title": "Java Programming",
+        "code": "CSE-3317"
+    },
+    {
+        "title": "Java Programming Sessional",
+        "code": "CSE-3318"
+    },
+    {
+        "title": "Digital Electronics",
+        "code": "EEE-2317"
+    },
+    {
+        "title": "Digital Electronics Sessional",
+        "code": "EEE-2318"
+    },
+    {
+        "title": "Engineering Drawing",
+        "code": "CEE-2110"
+    },
+    {
+        "title": "Numerical Methods",
+        "code": "CSE-3111"
+    },
+    {
+        "title": "Numerical Methods Sessional",
+        "code": "CSE-3112"
+    },
+    {
+        "title": "Theory of Computation",
+        "code": "CSE-3227"
+    },
+    {
+        "title": "Microprocessor Assembly Language and Computer Interfacing",
+        "code": "EEE-3211"
+    },
+    {
+        "title": "Microprocessor Assembly Language and Computer Interfacing Sessional",
+        "code": "EEE-3212"
+    },
+    {
+        "title": "Computer Networks",
+        "code": "CSE-3115"
+    },
+    {
+        "title": "Computer Networks Sessional",
+        "code": "CSE-3116"
+    },
+    {
+        "title": "Operating System",
+        "code": "CSE-3211"
+    },
+    {
+        "title": "Operating System Sessional",
+        "code": "CSE-3212"
+    },
+    {
+        "title": "Artificial Intelligence",
+        "code": "CSE-4119"
+    },
+    {
+        "title": "Project-I",
+        "code": "CSE-3300"
+    },
+    {
+        "title": "Management Information System",
+        "code": "CSE-4111"
+    },
+    {
+        "title": "Computer Architecture and Design",
+        "code": "CSE-3117"
+    },
+    {
+        "title": "Compiler Design and Construction",
+        "code": "CSE-3315"
+    },
+    {
+        "title": "Compiler Design and Construction Sessional",
+        "code": "CSE-3316"
+    },
+    {
+        "title": "Software Engineering and Information System Design",
+        "code": "CSE-3319"
+    },
+    {
+        "title": "Software Engineering and Information System Design Sessional",
+        "code": "CSE-3320"
+    },
+    {
+        "title": "Computer Graphics",
+        "code": "CSE-4113"
+    },
+    {
+        "title": "Computer Graphics Sessional",
+        "code": "CSE-4114"
+    },
+    {
+        "title": "Web Technologies",
+        "code": "CSE-4211"
+    },
+    {
+        "title": "Web Technologies Sessional",
+        "code": "CSE-4212"
+    },
+    {
+        "title": "Project-II/Thesis (Part-I)",
+        "code": "CSE-4800"
+    },
+    {
+        "title": "Computer Security and Cryptography",
+        "code": "CSE-4315"
+    },
+    {
+        "title": "Digital Signal Processing",
+        "code": "CSE-3213"
+    },
+    {
+        "title": "Digital Signal Processing Sessional",
+        "code": "CSE-3214"
+    },
+    {
+        "title": "Machine Learning",
+        "code": "CSE-4233"
+    },
+    {
+        "title": "Machine Learning Sessional",
+        "code": "CSE-4234"
+    },
+    {
+        "title": "Project-II/Thesis (Part-II)",
+        "code": "CSE-4801"
+    },
+    {
+        "title": "VLSI I",
+        "code": "EEE-4127"
+    },
+    {
+        "title": "VLSI I Sessional",
+        "code": "EEE-4128"
+    },
+    {
+        "title": "Electronic Devices and Circuits",
+        "code": "EEE-2121"
+    },
+    {
+        "title": "Electronic Devices and Circuits Sessional",
+        "code": "EEE-2122"
+    },
+    {
+        "title": "Coordinate Geometry & Vector Analysis",
+        "code": "MAT-2151"
+    },
+    {
+        "title": "Introduction to Economics",
+        "code": "GED-2181"
+    },
+    {
+        "title": "Electromagnetism and Modern Physics",
+        "code": "PHY-2171"
+    }
+]
