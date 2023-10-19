@@ -8,14 +8,12 @@ import { DateInput } from '@mantine/dates';
 import '@mantine/dates/styles.css';
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemplate, getValues } from '../redux/inputValueSlice';
+import { getDateInclude, getForValue, getTemplate, getValues } from '../redux/inputValueSlice';
 import Preview from '../components/Preview';
 import instituteLogo from '../assets/Leading_University_Logo.png';
 
 const Formtext = () => {
     const { name } = useParams();
-    const [value, setValue] = useState('for Assignment');
-    const [subchecked, setChecked] = useState(true);
     const [content, setContent] = useState([1]);
     const [dateValue, setDate] = useState(new Date());
     const formatedDate = dayjs(dateValue).format("D MMM YYYY");
@@ -23,15 +21,21 @@ const Formtext = () => {
     const inputData = useSelector(state => state.input.data);
     const [file, setFile] = useState(null);
     const resetRef = useRef(null);
-
+    
+    const subchecked = useSelector(state => state.input.dateInclude);
+    const forValue = useSelector(state => state.input.forValue);
+    
+    const handleDateInclude = (v) => {
+        dispatch(getDateInclude(v))
+    }
+    const handleForValue = (v) => {
+        dispatch(getForValue(v))
+    }
 
     const clearFile = () => {
         setFile(null);
         resetRef.current?.();
     };
-
-
-
 
     const handleAddContent = () => {
         setContent((prev) => [...prev, prev[prev.length - 1] + 1]);
@@ -65,8 +69,6 @@ const Formtext = () => {
     }, [formatedDate,file]);
 
    
-
-
     const handaleDate = (v) => {
         setDate(v);
     };
@@ -74,6 +76,7 @@ const Formtext = () => {
         const v = URL.createObjectURL(value);
         setFile(v);
     };
+
 
     return (
         <div className='container relative h-full'>
@@ -163,7 +166,7 @@ const Formtext = () => {
 
                             </div>
 
-                            <Chip.Group multiple={false} value={value} onChange={setValue}>
+                            <Chip.Group multiple={false} value={forValue} onChange={(v) => handleForValue(v)}>
                                 <Group justify="start" className='mt-6' >
                                     <Chip variant='filled' value="for Assignment">for Assignment</Chip>
                                     <Chip value="for Lab">for Lab</Chip>
@@ -173,8 +176,8 @@ const Formtext = () => {
                             <TextInput
                                 onChange={handleChange}
                                 required
-                                label={`${value == 'for Assignment' ? 'Assignment' : 'Lab'} Topic`}
-                                placeholder={`Enter ${value == 'for Assignment' ? 'Assignment' : 'Lab'} Topic`}
+                                label={`${forValue == 'for Assignment' ? 'Assignment' : 'Lab'} Topic`}
+                                placeholder={`Enter ${forValue == 'for Assignment' ? 'Assignment' : 'Lab'} Topic`}
                                 inputWrapperOrder={['label', 'error', 'input']}
                                 className='mt-2'
                                 name='topic'
@@ -395,7 +398,7 @@ const Formtext = () => {
 
 
                             <div className='mt-3'>
-                                <Chip variant='filled' checked={subchecked} onChange={setChecked} value={subchecked ? "Include Submition Date" : 'Not include submition date'}>{subchecked ? "Include Submition Date" : 'Not include submition date'}</Chip>
+                                <Chip variant='filled' checked={subchecked} onChange={(v) => handleDateInclude(v)} value={subchecked ? "Include Submition Date" : 'Not include submition date'}>{subchecked ? "Include Submition Date" : 'Not include submition date'}</Chip>
                                 {subchecked ? <DateInput value={dateValue} onChange={(value) => handaleDate(value)} name='dateInpu' valueFormat="DD MMM YYYY" label="Submition Date" placeholder="Date input" /> : ''}
                             </div>
 
@@ -408,7 +411,7 @@ const Formtext = () => {
                         <p className='font-bold'>PREVIEW</p>
                         <Select
                             label={'Choose a Template'}
-                            data={['template1', 'template2', 'template3', 'template4']}
+                            data={['template1', 'template2']}
                             defaultValue={'template1'}
                             onChange={(value) => dispatch(getTemplate(value))}
                             allowDeselect={false}
