@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
-import { Button, Chip, FileButton, Group, Select, TextInput } from '@mantine/core';
+import { Button, Chip, FileButton, Group, Select, Switch, TextInput } from '@mantine/core';
 import titlejson from '../data/title.json';
 import datas from '../data/datas.json';
 import { DateInput } from '@mantine/dates';
 import '@mantine/dates/styles.css';
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDateInclude, getForValue, getTemplate, getValues } from '../redux/inputValueSlice';
+import { getDateInclude, getForValue, getSameCheck, getTableContent, getTemplate, getValues } from '../redux/inputValueSlice';
 import Preview from '../components/Preview';
 import instituteLogo from '../assets/Leading_University_Logo.png';
 
@@ -24,6 +24,7 @@ const Formtext = () => {
     
     const subchecked = useSelector(state => state.input.dateInclude);
     const forValue = useSelector(state => state.input.forValue);
+    const sameCheck = useSelector(state => state.input.sameCheck);
     
     const handleDateInclude = (v) => {
         dispatch(getDateInclude(v))
@@ -57,16 +58,19 @@ const Formtext = () => {
     };
 
     useEffect(() => {
-        // subchecked ? dispatch(getValues({ ...inputData, 'inputDate': formatedDate, 'photo': file ? file : instituteLogo })) : '';
         
         if (subchecked && !file) {
             dispatch(getValues({ ...inputData, 'inputDate': formatedDate,photo:instituteLogo}))
         } else {
             dispatch(getValues({ ...inputData, photo: file }))
         }
-       
+        
 
-    }, [formatedDate,file]);
+    }, [formatedDate, file]);
+
+    useEffect(() => {
+        dispatch(getTableContent(content))
+    }, [content])
 
    
     const handaleDate = (v) => {
@@ -77,6 +81,9 @@ const Formtext = () => {
         setFile(v);
     };
 
+    const handleSameChange = (v) => {
+        dispatch(getSameCheck(v.currentTarget.checked))
+    }
 
     return (
         <div className='container relative h-full'>
@@ -93,8 +100,11 @@ const Formtext = () => {
                         <form >
 
                             <div className='mb-11 text-center flex flex-col items-center gap-6'>
-                                <div size="sm" ta="center" mt="sm" className='w-[10rem] h-[10rem] border overflow-hidden'>
-                                    <img src={file ? file : instituteLogo} className='w-full h-full object-contain' alt="logoimg" />
+                                <div>
+                                    <div size="sm" ta="center" mt="sm" className='w-[10rem] h-[10rem] border overflow-hidden'>
+                                        <img src={file ? file : instituteLogo} className='w-full h-full object-contain' alt="logoimg" />
+                                    </div>
+                                    
                                 </div>
 
                                 <Group justify="center">
@@ -241,16 +251,19 @@ const Formtext = () => {
 
 
                             </div>
+                         
                             {name == 'group' ? <>
                                 {content.map((data, i) => (
-                                    <div key={i}>
-                                        <p className='text-xl text-center py-4 font-bold'>{data} Student's Information</p>
+                                    <div key={i} >
+                                        <div>
+                                            <p className='text-xl text-center py-4 font-bold'>{data} Student's Information</p>
+                                        </div>
                                         <div className='md:grid grid-cols-3 gap-2 items-center justify-center'>
                                             <TextInput
                                                 onChange={handleChange}
                                                 required
                                                 label="Name"
-                                                placeholder="Enter Teacher's name"
+                                                placeholder="Enter studnet's name"
                                                 inputWrapperOrder={['label', 'error', 'input']}
                                                 className='flex-1'
                                                 name={`studentName${data}`}
@@ -320,6 +333,12 @@ const Formtext = () => {
                                 <div className='text-center py-4 gap-3 flex items-center justify-center'>
                                     <Button onClick={handleAddContent} className='bg-black text-white' variant="light">+ Add Student</Button>
                                     <Button onClick={handleRemoveContent} className='bg-black text-white' variant="light">- Remove Student</Button>
+                                    <Switch
+                                        checked={sameCheck}
+                                        onChange={(v) => handleSameChange(v)}
+                                        className='py-4 font-bold'
+                                        label="Batch, Dept. Same as 1st Member"
+                                    />
                                 </div>
                             </> :
                                 <>
@@ -398,8 +417,8 @@ const Formtext = () => {
 
 
                             <div className='mt-3'>
-                                <Chip variant='filled' checked={subchecked} onChange={(v) => handleDateInclude(v)} value={subchecked ? "Include Submition Date" : 'Not include submition date'}>{subchecked ? "Include Submition Date" : 'Not include submition date'}</Chip>
-                                {subchecked ? <DateInput value={dateValue} onChange={(value) => handaleDate(value)} name='dateInpu' valueFormat="DD MMM YYYY" label="Submition Date" placeholder="Date input" /> : ''}
+                                <Chip variant='filled' checked={subchecked} onChange={(v) => handleDateInclude(v)} value={subchecked ? "Submission Date Included" : 'Submission date not included'}>{subchecked ? "Submission Date Included" : 'Submission date not included'}</Chip>
+                                {subchecked ? <DateInput value={dateValue} onChange={(value) => handaleDate(value)} name='dateInpu' valueFormat="DD MMM YYYY" label="Submission Date" placeholder="Date input" /> : ''}
                             </div>
 
                         </form>

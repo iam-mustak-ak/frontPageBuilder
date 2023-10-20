@@ -4,7 +4,9 @@ const initialState = {
     data: {},
     template: 'template1',
     forValue: 'for Assignment',
-    dateInclude:true
+    dateInclude: true,
+    tableContent: [],
+    sameCheck:false
 };
 
 const inputSlice = createSlice({
@@ -22,10 +24,16 @@ const inputSlice = createSlice({
         },
         getDateInclude: (state, action) => {
             state.dateInclude=action.payload
+        },
+        getTableContent: (state,action) => {
+            state.tableContent=action.payload
+        },
+        getSameCheck: (state, action) => {
+            state.sameCheck=action.payload
         }
 
     }
 });
 
 export default inputSlice.reducer;
-export const {getValues,getTemplate,getForValue,getDateInclude} = inputSlice.actions
+export const {getValues,getTemplate,getForValue,getDateInclude,getTableContent,getSameCheck} = inputSlice.actions
