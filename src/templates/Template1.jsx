@@ -1,53 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Margin, usePDF } from 'react-to-pdf';
 import { Button, Table } from '@mantine/core';
-import { Download as DIcon } from 'lucide-react';
-import { useParams } from 'react-router-dom';
+import { Download as DIcon, Group } from 'lucide-react';
+import GroupTable from '../components/GroupTable';
+import IndividualTable from '../components/IndividualTable';
+import TeacherInfo from '../components/TeacherInfo';
+import FrontHeader from '../components/FrontHeader';
 
 
-const Template1 = () => {
-
-  const { name } = useParams();
-  const sameCheck = useSelector(state => state.input.sameCheck);
-  const tableContent = useSelector(state => state.input.tableContent);
-  const dateInlcude = useSelector(state => state.input.dateInclude);
-  const forValue = useSelector(state => state.input.forValue);
-  const data = useSelector(state => state.input.data);
-  const { toPDF, targetRef } = usePDF({
-    filename: `${data.studentId ? data.studentId : 'Front-page'}`,
-    page: {
-      margin: Margin.MEDIUM
-    }
-  });
+const Template1 = ({data,name,sameCheck,tableContent,dateInlcude,forValue,toPDF,targetRef}) => {
 
   return (
     <div>
 
-      <div id="frontPage" className='border mt-3 w-full mx-auto my-auto font-serif'>
+      <div id="frontPage" className=' border mt-3 w-full mx-auto my-auto font-serif'>
         <div ref={targetRef} >
-          <div className='w-[45rem] px-8 mx-auto py-6'>
-            <div className="frontHeader flex gap-7 items-center w-full">
-              <img src={data.photo} alt="" className='w-[151px] h-[151px] object-contain' />
-              <div className="headerInfo border text-center flex-1 p-3 border-[#3465a4]">
-                <h1 className="varsityName text-[20pt] font-bold font-serifBold">Leading University, Sylhet</h1>
-                <h2 className="deptName text-[16pt]">{data.deptName ? data.deptName : '--'}</h2>
-                <div className='text-start pt-4'>
-                  <table className='border-collapse font-serif text-[14pt]'>
-                    <tbody>
-                      <tr >
-                        <td className="font-serifBold w-[8rem] align-top" >Course Code: </td>
-                        <td>{data.courseCode ? data.courseCode : '--'}</td>
-                      </tr>
-                      <tr>
-                        <td className="font-serifBold w-[8rem] align-top">Course Title:</td>
-                        <td>{data.courseTitle ? data.courseTitle : '--'}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+          <div className='w-[45rem] bg-white px-8 mx-auto py-6'>
+            <FrontHeader data={data}/>
 
             <div className="topicInfo border border-[#3465a4] mt-[4rem] p-4">
               <table className='border-collapse font-serif text-[14pt]'>
@@ -66,69 +34,16 @@ const Template1 = () => {
 
             <div className="teacherInfo border border-[#3465a4] mt-[3rem] p-4 text-center font-calde">
 
-              <h1 className='text-[18pt] underline underline-offset-4 font-bold'>SUBMITTED TO</h1>
-              <div className='text-[15pt] mt-3'>
-                <h1 className="teacherName text-[18pt] font-bold">{data.teacherName ? data.teacherName : '--'}</h1>
-                <h2 className="teacherDesignation">{data.teacherDesignation ? data.teacherDesignation : '--'}</h2>
-                <h2 className='teacherDeptName'>{data.facultyName ? data.facultyName : '--'}</h2>
-                <h2 className='teacherVersityName'>Leading University, Sylhet</h2>
-
-              </div>
+              <TeacherInfo data={data}/>
 
             </div>
             <div className="studentInfo border border-[#3465a4] mt-[3rem] p-4 text-center font-calde">
               <h1 className='text-[18pt] underline underline-offset-4 font-bold'>SUBMITTED BY</h1>
               <div className='text-[15pt] mt-3'>
-                {name == 'individual' ? <table className='border-collapse font-calde text-start text-[14pt] mx-auto'>
-                  <tbody>
-                    <tr >
-                      <td className="font-bold w-[8rem] align-top " >Name: </td>
-                      <td>{data.studentName ? data.studentName : '--'}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold w-[8rem] align-top">ID:</td>
-                      <td>{data.studentId ? data.studentId : '--'}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold w-[8rem] align-top">Batch:</td>
-                      <td>{data.studentBatch ? data.studentBatch : '--'}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold w-[8rem] align-top">Deparment:</td>
-                      <td>{data.studentDepartment ? data.studentDepartment : '--'}</td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold w-[8rem] align-top">Section:</td>
-                      <td>{data.studentSection ? data.studentSection : '--'}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                {name == 'individual' ? 
+                 <IndividualTable data={data}/>
                   :
-                  <Table highlightOnHover withTableBorder withColumnBorders className='font-calde text-start'>
-                    <Table.Thead>
-                      <Table.Tr>
-                        <Table.Th>Name</Table.Th>
-                        <Table.Th>ID</Table.Th>
-                        <Table.Th>Department</Table.Th>
-                        <Table.Th>Section</Table.Th>
-                        <Table.Th>Batch</Table.Th>
-                      </Table.Tr>
-                    </Table.Thead>
-                    <Table.Tbody>
-
-                      {tableContent.map((table, ind) => (
-                        <Table.Tr key={ind} >
-                          <Table.Td>{data[`studentName${table}`] || '--'}</Table.Td>
-                          <Table.Td>{data[`studentId${table}`] || '--'} </Table.Td>
-                          <Table.Td>{sameCheck ? data[`studentDepartment1`] : data[`studentDepartment${table}`] || '--'}</Table.Td>
-                          <Table.Td>{sameCheck ? data[`studentSection1`] : data[`studentSection${table}`] || '--'}</Table.Td>
-                          <Table.Td>{sameCheck ? data[`studentBatch1`] : data[`studentBatch${table}`] || '--'}</Table.Td>
-                        </Table.Tr>
-                      ))}
-
-
-                    </Table.Tbody>
-                  </Table>
+                  <GroupTable data={data} sameCheck={sameCheck} tableContent={tableContent}/>
                 }
               </div>
             </div>
