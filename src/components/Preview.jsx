@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Template1 from '../templates/Template1';
 import Template2 from '../templates/Template2';
 import { useParams } from 'react-router-dom';
-import { Margin, usePDF } from 'react-to-pdf';
+import { Margin, Resolution, usePDF } from 'react-to-pdf';
 
 const Preview = () => {
   const template = useSelector(state => state.input.template);
@@ -24,7 +24,8 @@ const Preview = () => {
         orientation: 'portrait',
         
       }
-    }
+    },
+    resolution: Resolution.EXTREME
   });
 
   return (
