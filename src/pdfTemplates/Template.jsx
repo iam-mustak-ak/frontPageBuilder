@@ -10,16 +10,16 @@ import {
 
 import serifBold from "../assets/fonts/LiberationSerif-Bold.ttf";
 import serifRegular from "../assets/fonts/LiberationSerif-Regular.ttf";
+import IndividualPdf from "../pdfComponets/IndividualPdf";
 
-const Template = () => {
+const Template = ({ data, forValue, dateInlcude }) => {
+    console.log(data);
+
     return (
         <Document pageMode="useNone">
             <Page size="A4" style={styles.body}>
                 <View style={styles.header}>
-                    <Image
-                        style={styles.logo}
-                        src={"/Leading_University_Logo.png"}
-                    />
+                    <Image style={styles.logo} src={data.photo} />
 
                     <View style={styles.headerInfo}>
                         <Text
@@ -31,7 +31,7 @@ const Template = () => {
                             Leading University, Sylhet
                         </Text>
                         <Text style={{ fontSize: "16pt", paddingVertical: 5 }}>
-                            Computer Science & Engineering
+                            {data.deptName ? data.deptName : "--"}
                         </Text>
 
                         <View style={{ marginTop: 20 }}>
@@ -60,7 +60,7 @@ const Template = () => {
                                         textAlign: "left",
                                     }}
                                 >
-                                    GED-1262
+                                    {data.courseCode ? data.courseCode : "--"}
                                 </Text>
                             </View>
                             <View
@@ -89,8 +89,7 @@ const Template = () => {
                                         width: "100%",
                                     }}
                                 >
-                                    Differential Equation Laplace Transform and
-                                    Fourier Analysis
+                                    {data.courseTitle ? data.courseTitle : "--"}
                                 </Text>
                             </View>
                         </View>
@@ -116,7 +115,10 @@ const Template = () => {
                             }}
                             break={false}
                         >
-                            Assignment Name:{" "}
+                            {forValue == "for Assignment"
+                                ? "Asssignment"
+                                : "Lab"}{" "}
+                            Name:{" "}
                         </Text>
                         <Text
                             style={{
@@ -125,8 +127,7 @@ const Template = () => {
                                 width: "100%",
                             }}
                         >
-                            Differential Equation Laplace Transform and Fourier
-                            Analysis
+                            {data.topic ? data.topic : "--"}
                         </Text>
                     </View>
                     <View
@@ -156,7 +157,9 @@ const Template = () => {
                                 width: "100%",
                             }}
                         >
-                            19 Feb 2024
+                            {dateInlcude
+                                ? data.inputDate
+                                : "..........................."}
                         </Text>
                     </View>
                 </View>
@@ -182,7 +185,7 @@ const Template = () => {
                             marginBottom: 3,
                         }}
                     >
-                        Prithwiraj Bhattacharjee
+                        {data.teacherName ? data.teacherName : "--"}
                     </Text>
                     <Text
                         style={{
@@ -192,7 +195,9 @@ const Template = () => {
                             marginBottom: 3,
                         }}
                     >
-                        Assistant Professor
+                        {data.teacherDesignation
+                            ? data.teacherDesignation
+                            : "--"}
                     </Text>
                     <Text
                         style={{
@@ -202,7 +207,7 @@ const Template = () => {
                             marginBottom: 3,
                         }}
                     >
-                        Business Administration
+                        {data.facultyName ? data.facultyName : "--"}
                     </Text>
                     <Text
                         style={{
@@ -216,182 +221,7 @@ const Template = () => {
                 </View>
 
                 {/* student info */}
-                <View style={styles.forInfo}>
-                    <Text
-                        style={{
-                            fontFamily: "serifBold",
-                            textAlign: "center",
-                            textDecoration: "underline",
-                            marginBottom: 20,
-                        }}
-                    >
-                        SUBMITTED BY
-                    </Text>
-
-                    <View
-                        style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "start",
-                            gap: 12,
-                            textAlign: "center",
-                            marginBottom: 5,
-                        }}
-                    >
-                        <Text
-                            style={{
-                                fontSize: "14pt",
-                                fontFamily: "serifBold",
-                                width: "25%",
-                                textAlign: "left",
-                            }}
-                            break={false}
-                        >
-                            Name:{" "}
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: "14pt",
-                                textAlign: "left",
-                                width: "100%",
-                            }}
-                        >
-                            Md. Mustak Ahmed Khan
-                        </Text>
-                    </View>
-
-                    <View
-                        style={{
-                            width: "100%",
-                            alignContent: "center",
-                        }}
-                    >
-                        <View
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "start",
-                                gap: 12,
-                                textAlign: "center",
-                                marginBottom: 5,
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    fontFamily: "serifBold",
-                                    width: "25%",
-                                    textAlign: "left",
-                                }}
-                                break={false}
-                            >
-                                ID:{" "}
-                            </Text>
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    textAlign: "left",
-                                    width: "100%",
-                                }}
-                            >
-                                2132020001
-                            </Text>
-                        </View>
-                        <View
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "start",
-                                gap: 12,
-                                textAlign: "center",
-                                marginBottom: 5,
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    fontFamily: "serifBold",
-                                    width: "25%",
-                                    textAlign: "left",
-                                }}
-                                break={false}
-                            >
-                                Batch:{" "}
-                            </Text>
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    textAlign: "left",
-                                    width: "100%",
-                                }}
-                            >
-                                58
-                            </Text>
-                        </View>
-                        <View
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "start",
-                                gap: 12,
-                                textAlign: "center",
-                                marginBottom: 5,
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    fontFamily: "serifBold",
-                                    width: "25%",
-                                    textAlign: "left",
-                                }}
-                                break={false}
-                            >
-                                Department:{" "}
-                            </Text>
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    textAlign: "left",
-                                    width: "100%",
-                                }}
-                            >
-                                Computer Science And Engineering
-                            </Text>
-                        </View>
-                        <View
-                            style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                alignItems: "start",
-                                gap: 12,
-                                textAlign: "center",
-                                marginBottom: 5,
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    fontFamily: "serifBold",
-                                    width: "25%",
-                                    textAlign: "left",
-                                }}
-                                break={false}
-                            >
-                                Section:{" "}
-                            </Text>
-                            <Text
-                                style={{
-                                    fontSize: "14pt",
-                                    textAlign: "left",
-                                    width: "100%",
-                                }}
-                            >
-                                A
-                            </Text>
-                        </View>
-                    </View>
-                </View>
+                <IndividualPdf data={data} />
             </Page>
         </Document>
     );
