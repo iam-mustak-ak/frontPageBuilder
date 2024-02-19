@@ -91,7 +91,7 @@ const Template1 = ({
                     fileName={data.studentId}
                 >
                     {({ blob, url, loading, error }) =>
-                        loading ? (
+                        error ? (
                             "Loading document..."
                         ) : (
                             <Button

@@ -2,10 +2,12 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Github } from "lucide-react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import logo from "../assets/heart.png";
 
 export default function Navbar() {
+    const { name } = useParams();
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -27,13 +29,21 @@ export default function Navbar() {
                                         {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                                         <Link
                                             to="/individual"
-                                            className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                            className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                                                name && name == "individual"
+                                                    ? "bg-gray-900 text-white"
+                                                    : ""
+                                            }`}
                                         >
                                             Individual
                                         </Link>
                                         <Link
                                             to="/group"
-                                            className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                            className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                                                name && name == "group"
+                                                    ? "bg-gray-900 text-white"
+                                                    : ""
+                                            }`}
                                         >
                                             Group
                                         </Link>
@@ -42,7 +52,10 @@ export default function Navbar() {
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex items-center">
-                                    <button
+                                    <Link
+                                        to="https://github.com/iam-MustakAhmedKhan"
+                                        target="_blank"
+                                        rel="nofollow"
                                         type="button"
                                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                     >
@@ -51,7 +64,7 @@ export default function Navbar() {
                                             View in Github
                                         </span>
                                         <Github className="h-6 w-6" />
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="-mr-2 flex sm:hidden">
