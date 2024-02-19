@@ -12,7 +12,14 @@ import serifBold from "../assets/fonts/LiberationSerif-Bold.ttf";
 import serifRegular from "../assets/fonts/LiberationSerif-Regular.ttf";
 import GroupPdf from "../pdfComponets/GroupPdf";
 
-const Template = ({ data, forValue, dateInlcude, tableContent, sameCheck }) => {
+const Template = ({
+    data,
+    forValue,
+    dateInlcude,
+    tableContent,
+    sameCheck,
+    name,
+}) => {
     console.log(data);
 
     return (
@@ -233,12 +240,16 @@ const Template = ({ data, forValue, dateInlcude, tableContent, sameCheck }) => {
                     >
                         SUBMITTED BY
                     </Text>
-                    {/* <IndividualPdf data={data} /> */}
-                    <GroupPdf
-                        data={data}
-                        tableContent={tableContent}
-                        sameCheck={sameCheck}
-                    />
+
+                    {name == "individual" ? (
+                        <IndividualPdf data={data} />
+                    ) : (
+                        <GroupPdf
+                            data={data}
+                            tableContent={tableContent}
+                            sameCheck={sameCheck}
+                        />
+                    )}
                 </View>
             </Page>
         </Document>

@@ -94,18 +94,24 @@ export default function Navbar() {
                         <div className="space-y-1 px-2 pb-3 pt-2">
                             {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                             <Disclosure.Button
-                                as="Link"
-                                href="/individual"
-                                className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                                as="button"
+                                className={`block w-full rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                                    name && name == "individual"
+                                        ? "bg-gray-900 text-white"
+                                        : ""
+                                }`}
                             >
-                                Individual
+                                <Link to="/individual">Individual</Link>
                             </Disclosure.Button>
                             <Disclosure.Button
-                                as="Link"
-                                href="/group"
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                as="button"
+                                className={`block w-full rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
+                                    name && name == "group"
+                                        ? "bg-gray-900 text-white"
+                                        : ""
+                                }`}
                             >
-                                Group
+                                <Link to="/group">Group</Link>
                             </Disclosure.Button>
                         </div>
                     </Disclosure.Panel>

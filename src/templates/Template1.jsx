@@ -86,6 +86,7 @@ const Template1 = ({
                             dateInlcude={dateInlcude}
                             sameCheck={sameCheck}
                             tableContent={tableContent}
+                            name={name}
                         />
                     }
                     fileName={data.studentId}
