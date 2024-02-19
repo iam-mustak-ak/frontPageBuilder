@@ -6,7 +6,7 @@ import FrontHeader from "../components/FrontHeader";
 import GroupTable from "../components/GroupTable";
 import IndividualTable from "../components/IndividualTable";
 import TeacherInfo from "../components/TeacherInfo";
-import Template from "../pdfTemplates/Template";
+import Template from "../pdfTemplates/TemplatePdf1";
 
 const Template1 = ({
     data,
@@ -84,6 +84,8 @@ const Template1 = ({
                             data={data}
                             forValue={forValue}
                             dateInlcude={dateInlcude}
+                            sameCheck={sameCheck}
+                            tableContent={tableContent}
                         />
                     }
                     fileName={data.studentId}

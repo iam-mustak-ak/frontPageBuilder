@@ -4,56 +4,44 @@ import serifBold from "../assets/fonts/LiberationSerif-Bold.ttf";
 import serifRegular from "../assets/fonts/LiberationSerif-Regular.ttf";
 const IndividualPdf = ({ data }) => {
     return (
-        <View style={styles.forInfo}>
-            <Text
-                style={{
-                    fontFamily: "serifBold",
-                    textAlign: "center",
-                    textDecoration: "underline",
-                    marginBottom: 20,
-                }}
-            >
-                SUBMITTED BY
-            </Text>
-
-            <View
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "start",
-                    gap: 12,
-                    textAlign: "center",
-                    marginBottom: 5,
-                }}
-            >
-                <Text
-                    style={{
-                        fontSize: "14pt",
-                        fontFamily: "serifBold",
-                        width: "25%",
-                        textAlign: "left",
-                    }}
-                    break={false}
-                >
-                    Name:{" "}
-                </Text>
-                <Text
-                    style={{
-                        fontSize: "14pt",
-                        textAlign: "left",
-                        width: "100%",
-                    }}
-                >
-                    {data.studentName ? data.studentName : "--"}
-                </Text>
-            </View>
-
+        <>
             <View
                 style={{
                     width: "100%",
                     alignContent: "center",
                 }}
             >
+                <View
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "start",
+                        gap: 12,
+                        textAlign: "center",
+                        marginBottom: 5,
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: "14pt",
+                            fontFamily: "serifBold",
+                            width: "25%",
+                            textAlign: "left",
+                        }}
+                        break={false}
+                    >
+                        Name:{" "}
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: "14pt",
+                            textAlign: "left",
+                            width: "100%",
+                        }}
+                    >
+                        {data.studentName ? data.studentName : "--"}
+                    </Text>
+                </View>
                 <View
                     style={{
                         display: "flex",
@@ -179,7 +167,7 @@ const IndividualPdf = ({ data }) => {
                     </Text>
                 </View>
             </View>
-        </View>
+        </>
     );
 };
 

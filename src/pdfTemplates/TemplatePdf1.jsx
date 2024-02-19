@@ -10,9 +10,9 @@ import {
 
 import serifBold from "../assets/fonts/LiberationSerif-Bold.ttf";
 import serifRegular from "../assets/fonts/LiberationSerif-Regular.ttf";
-import IndividualPdf from "../pdfComponets/IndividualPdf";
+import GroupPdf from "../pdfComponets/GroupPdf";
 
-const Template = ({ data, forValue, dateInlcude }) => {
+const Template = ({ data, forValue, dateInlcude, tableContent, sameCheck }) => {
     console.log(data);
 
     return (
@@ -221,7 +221,25 @@ const Template = ({ data, forValue, dateInlcude }) => {
                 </View>
 
                 {/* student info */}
-                <IndividualPdf data={data} />
+
+                <View style={styles.forInfo}>
+                    <Text
+                        style={{
+                            fontFamily: "serifBold",
+                            textAlign: "center",
+                            textDecoration: "underline",
+                            marginBottom: 20,
+                        }}
+                    >
+                        SUBMITTED BY
+                    </Text>
+                    {/* <IndividualPdf data={data} /> */}
+                    <GroupPdf
+                        data={data}
+                        tableContent={tableContent}
+                        sameCheck={sameCheck}
+                    />
+                </View>
             </Page>
         </Document>
     );
