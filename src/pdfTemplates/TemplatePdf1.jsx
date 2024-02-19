@@ -11,6 +11,7 @@ import {
 import serifBold from "../assets/fonts/LiberationSerif-Bold.ttf";
 import serifRegular from "../assets/fonts/LiberationSerif-Regular.ttf";
 import GroupPdf from "../pdfComponets/GroupPdf";
+import IndividualPdf from "../pdfComponets/IndividualPdf";
 
 const Template = ({
     data,
