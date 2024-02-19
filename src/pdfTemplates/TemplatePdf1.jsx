@@ -21,8 +21,6 @@ const Template = ({
     sameCheck,
     name,
 }) => {
-    console.log(data);
-
     return (
         <Document pageMode="useNone">
             <Page size="A4" style={styles.body}>
