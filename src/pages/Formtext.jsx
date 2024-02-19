@@ -465,7 +465,7 @@ const Formtext = () => {
                                             </div>
                                         ))}
 
-                                        <div className="text-center py-4 gap-3 flex items-center justify-center">
+                                        <div className="text-center py-4 gap-3 flex items-center flex-wrap justify-center">
                                             <Button
                                                 onClick={handleAddContent}
                                                 className="bg-black text-white"
