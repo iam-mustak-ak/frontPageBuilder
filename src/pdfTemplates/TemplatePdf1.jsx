@@ -116,7 +116,7 @@ const Template = ({
                             style={{
                                 fontSize: "14pt",
                                 fontFamily: "serifBold",
-                                width: "35%",
+                                width: "38%",
                                 textAlign: "left",
                             }}
                             break={false}
@@ -149,7 +149,7 @@ const Template = ({
                             style={{
                                 fontSize: "14pt",
                                 fontFamily: "serifRegular",
-                                width: "35%",
+                                width: "38%",
                                 textAlign: "left",
                             }}
                             break={false}
@@ -265,9 +265,9 @@ const styles = StyleSheet.create({
         objectFit: "contain",
     },
     body: {
-        paddingTop: 35,
+        paddingTop: 50,
         paddingBottom: 65,
-        paddingHorizontal: 35,
+        paddingHorizontal: 50,
         fontFamily: "serifRegular",
     },
 

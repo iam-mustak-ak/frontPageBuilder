@@ -9,6 +9,7 @@ const IndividualPdf = ({ data }) => {
                 style={{
                     width: "100%",
                     alignContent: "center",
+                    marginHorizontal: "22%",
                 }}
             >
                 <View

@@ -30,21 +30,21 @@ const Template1 = ({
                             <table className="border-collapse font-serif text-[14pt]">
                                 <tbody>
                                     <tr>
-                                        <td className="font-serifBold w-[11rem] align-top">
+                                        <td className="font-serifBold w-[11rem] max-sm:text-base align-top">
                                             {forValue == "for Assignment"
                                                 ? "Asssignment"
                                                 : "Lab"}{" "}
                                             Name:{" "}
                                         </td>
-                                        <td>
+                                        <td className="max-sm:text-base">
                                             {data.topic ? data.topic : "--"}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className="w-[11rem] align-top">
+                                        <td className="w-[11rem] max-sm:text-base align-top">
                                             Date of Submission:
                                         </td>
-                                        <td>
+                                        <td className="max-sm:text-base">
                                             {dateInlcude
                                                 ? data.inputDate
                                                 : "..........................."}
@@ -58,7 +58,7 @@ const Template1 = ({
                             <TeacherInfo data={data} />
                         </div>
                         <div className="studentInfo border border-[#3465a4] mt-[3rem] p-4 text-center font-calde">
-                            <h1 className="text-[18pt] underline underline-offset-4 font-bold">
+                            <h1 className="text-[18pt] underline underline-offset-4 max-sm:text-xl font-bold">
                                 SUBMITTED BY
                             </h1>
                             <div className="text-[15pt] mt-3">
