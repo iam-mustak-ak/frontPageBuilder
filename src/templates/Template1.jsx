@@ -78,7 +78,6 @@ const Template1 = ({
             </div>
 
             <div className="flex items-center justify-center">
-                {/* <Button onClick={() => toPDF()} className='bg-black my-5' rightSection={<DIcon size={14} />}>Download</Button> */}
                 <PDFDownloadLink
                     document={
                         <Template
@@ -87,7 +86,7 @@ const Template1 = ({
                             dateInlcude={dateInlcude}
                         />
                     }
-                    fileName="somename.pdf"
+                    fileName={data.studentId}
                 >
                     {({ blob, url, loading, error }) =>
                         loading ? (
